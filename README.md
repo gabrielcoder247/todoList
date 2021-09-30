@@ -47,10 +47,3 @@ Give a ⭐️ if you like this project!
 ## 📝 License
 
 This project is [MIT](./MIT.md) licensed
-
-https://gabrielcoder247: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github.com/gabrielcoder247/ToDo-List
-git remote set-url origin https://<username>:<Personal_access_tokens>@github.com/<your github repository name>.git
-
-
-
-git remote set-url origin https://gabrielcoder247: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@github.com/ToDo-List.git
