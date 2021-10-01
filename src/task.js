@@ -55,6 +55,14 @@ const changeState = (e) => {
     window.localStorage.setItem('taskList', JSON.stringify(updatedTasks));
 };
 
+function handleCheck() {
+    const checkBoxes = document.querySelectorAll('.checkbox');
+    checkBoxes.forEach((checkbox) => checkbox.addEventListener('change', () => {
+        changeState(checkbox);
+        displayTasks();
+    }));
+}
+
 
 
 
