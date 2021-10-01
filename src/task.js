@@ -1,0 +1,52 @@
+import './style.css';
+
+const tasks = [{
+        index: 1,
+        description: 'Attend a meeting',
+        completed: false,
+    },
+    {
+        index: 2,
+        description: 'Go to the gym',
+        completed: false,
+    },
+    {
+        index: 3,
+        description: 'Go shopping in the supermarket',
+        completed: false,
+    },
+];
+
+function task(item) {
+    const completeClass = item.completed ? 'strike' : '';
+    const completeChecked = item.completed ? 'checked' : '';
+    return `<ul class="list">
+      <li class="items">
+      <div class="details">
+      <input type="checkbox" class="checkbox" name="option" id="${item.index}" ${completeChecked} >
+      <label for="option1" id="item-list"class="${completeClass}">${item.description}</label>
+      </div>
+      <div class="icon">
+      <i class="fas fa-ellipsis-v color"></i>
+      </div>
+     </li>
+     </ul>
+     <div class="line"></div>`;
+}
+let getTask;
+if (localStorage.getItem('taskList') != null) {
+    getTask = JSON.parse(window.localStorage.getItem('taskList'));
+} else {
+    getTask = tasks;
+}
+
+function displayTasks(taskArray = getTask) {
+    const list = document.querySelector('#list-items');
+    const sortTasks = taskArray.sort((a, b) => a.index - b.index);
+    list.innerHTML = sortTasks.map((t) => task(t)).join('');
+    handleCheck();
+}
+
+
+
+export { tasks, task, displayTasks };
