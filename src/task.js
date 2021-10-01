@@ -46,6 +46,16 @@ function displayTasks(taskArray = getTask) {
     list.innerHTML = sortTasks.map((t) => task(t)).join('');
     handleCheck();
 }
+const changeState = (e) => {
+    const taskId = Number(e.id);
+    const task = getTask.find((t) => t.index === taskId);
+    task.completed = !task.completed;
+    const updatedTasks = getTask.filter((t) => t.index !== taskId);
+    updatedTasks.push(task);
+    window.localStorage.setItem('taskList', JSON.stringify(updatedTasks));
+};
+
+
 
 
 
